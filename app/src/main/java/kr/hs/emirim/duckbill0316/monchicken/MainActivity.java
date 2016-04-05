@@ -63,6 +63,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         try{
             Toast.makeText(this, name + "씨, 배고파요!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, ResultActivity.class);
+            //값(데이터)을 넘겨주는 코드 (extra : 추가)
+            intent.putExtra("name",name);
+            intent.putExtra("age",18);
             startActivity(intent);
 
         }catch (NullPointerException e){ //예외 처리
