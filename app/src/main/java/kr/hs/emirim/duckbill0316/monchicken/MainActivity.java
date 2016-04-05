@@ -32,7 +32,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        mName.setText("");
+        mName.setText(null);//(" "); 빈칸을 넣어두는 것이 좋음
     }
 
     /**  <-javadoc 표시
@@ -44,10 +44,32 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     //오버라이딩된 onClick
     @Override
     public void onClick(View v) {
-        //알림을 해주는 것 (.show 를 꼭 써줘여야 출력 될 수 있다!)
-        Toast.makeText(this,"배고파요!",Toast.LENGTH_LONG).show(); //메소드가 연속되어 실행된 것 (메소드 체이닝)
-        Intent intent = new Intent(this,ResultActivity.class); // (문맥 , 다음 액티비티 )
-        startActivity(intent); //액티비티로 넘겨 지는 명령어
+        //get : 얻어오는 것 , editable형을 문자로  toString()으로 반환 한다!
+        String name = mName.getText().toString();
+
+//        if(name==null){
+//            Toast.makeText(this,"이름을 입력해 주세요!", Toast.LENGTH_LONG).show();
+//        }else {
+//
+//            //알림을 해주는 것 (.show 를 꼭 써줘여야 출력 될 수 있다!)
+//            Toast.makeText(this, name + "씨, 배고파요!", Toast.LENGTH_LONG).show(); //메소드가 연속되어 실행된 것 (메소드 체이닝)
+//            //이름을 입력하지 않으면, NULL point inception 발생한다.
+//
+//            Intent intent = new Intent(this, ResultActivity.class); // (문맥 , 다음 액티비티 )
+//            startActivity(intent); //액티비티로 넘겨 지는 명령어
+//        }
+
+        //시도 하는 코드! (예외 처리를 하는 것을 도와주는 코드)
+        try{
+            Toast.makeText(this, name + "씨, 배고파요!", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, ResultActivity.class);
+            startActivity(intent);
+
+        }catch (NullPointerException e){ //예외 처리
+            Toast.makeText(this,"이름을 입력해 주세요!", Toast.LENGTH_LONG).show();
+        }catch (Exception e){
+            Toast.makeText(this,"뭔지 모르지만 잘 안돼요!", Toast.LENGTH_LONG).show();
+        }
 
     }
 }
