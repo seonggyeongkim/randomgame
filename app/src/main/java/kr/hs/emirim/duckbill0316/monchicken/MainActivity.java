@@ -1,5 +1,6 @@
 package kr.hs.emirim.duckbill0316.monchicken;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,7 +46,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         //알림을 해주는 것 (.show 를 꼭 써줘여야 출력 될 수 있다!)
         Toast.makeText(this,"배고파요!",Toast.LENGTH_LONG).show(); //메소드가 연속되어 실행된 것 (메소드 체이닝)
-
+        Intent intent = new Intent(this,ResultActivity.class); // (문맥 , 다음 액티비티 )
+        startActivity(intent); //액티비티로 넘겨 지는 명령어
 
     }
 }
