@@ -70,7 +70,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         }catch (NullPointerException e){ //예외 처리
             Toast.makeText(this,"이름을 입력해 주세요!", Toast.LENGTH_LONG).show();
-        }catch (Exception e){
+        }catch (Exception e){ //프로그램이 죽지 않게 해준다!
             Toast.makeText(this,"뭔지 모르지만 잘 안돼요!", Toast.LENGTH_LONG).show();
         }
 
