@@ -36,6 +36,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         mName.setText(null);//(" "); 빈칸을 넣어두는 것이 좋음
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     /**  <-javadoc 표시
