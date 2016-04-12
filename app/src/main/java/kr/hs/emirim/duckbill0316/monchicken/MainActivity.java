@@ -1,6 +1,7 @@
 package kr.hs.emirim.duckbill0316.monchicken;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     EditText mName;
     Button mButton;
+
+
 
 
     @Override
@@ -67,6 +70,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             intent.putExtra("name",name);
             intent.putExtra("age",18);
             startActivity(intent);
+            overridePendingTransition(0, R.anim.zoom_exit);
 
         }catch (NullPointerException e){ //예외 처리
             Toast.makeText(this,"이름을 입력해 주세요!", Toast.LENGTH_LONG).show();
