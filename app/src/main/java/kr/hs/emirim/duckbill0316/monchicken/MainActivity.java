@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      * @param v The view that was clicked. <- 인수
      */
 
-    //오버라이딩된 onClick
+    //오버라이딩된 onClick (버튼이 눌리면, 시작 된다!)
     @Override
     public void onClick(View v) {
         //get : 얻어오는 것 , editable형을 문자로  toString()으로 반환 한다!
@@ -70,7 +70,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             intent.putExtra("name",name);
             intent.putExtra("age",18);
             startActivity(intent);
-            overridePendingTransition(0, R.anim.zoom_exit);
+            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left); //애니메이션 효과 (메인 -> 리절트)
 
         }catch (NullPointerException e){ //예외 처리
             Toast.makeText(this,"이름을 입력해 주세요!", Toast.LENGTH_LONG).show();
